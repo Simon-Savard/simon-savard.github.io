@@ -1,0 +1,27 @@
+// Effet d'ondulation au survol des images du portfolio (voir scripts/components/RippleDistortion.js)
+.ripple-distortion{
+    position: relative;
+    overflow: hidden;
+    background: #000;
+
+    // L'image garde sa place dans la mise en page (elle donne sa taille au conteneur),
+    // mais elle est cachée dès que le canvas WebGL est prêt.
+    img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .ripple-distortion_canvas{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+    }
+
+    &.is-ready img{
+        opacity: 0;
+    }
+}

@@ -5,6 +5,7 @@ import Youtube from './components/Youtube.js';
 import Scrolly from './components/Scrolly.js';
 import Carousel from './components/Carousel.js';
 import Topography from './components/Topography.js';
+import RippleDistortion from './components/RippleDistortion.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -17,6 +18,7 @@ export default class ComponentFactory {
       Scrolly,
       Carousel,
       Topography,
+      RippleDistortion,
     };
     this.init();
   }
