@@ -18,7 +18,7 @@ const DEFAULTS = {
   glow: 1.5,
   colorMode: "elevation", // 'elevation' | 'uniform' | 'alternating'
   contrast: 3.0,
-  brightness: 1.0,
+  brightness: 0.4,
   fillBands: false,
   opacity: 1.0,
   grain: false,
