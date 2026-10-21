@@ -1,3 +1,17 @@
+// Le média (vidéo ou image) remplit toute la carte et est recadré au besoin (object-fit),
+// peu importe son ratio d'origine.
+@mixin card-media{
+    position: absolute;
+    inset: 0;
+    video,
+    img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
 .best_card{
     position: relative;
     width: 100%;
@@ -5,10 +19,7 @@
     border-radius: 24px;
     overflow: hidden;
     .card_media{
-        position: relative;
-        .video-cover{
-            width: 100%;
-        }
+        @include card-media();
         &::after{
             content: "";
             width: 100%;
@@ -76,7 +87,7 @@
     border-radius: 24px;
     overflow: hidden;
     .card_media{
-        position: relative;
+        @include card-media();
         &::after{
             content: "";
             width: 100%;

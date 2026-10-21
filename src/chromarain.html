@@ -35,7 +35,6 @@
     <section class="info_projet secondary">
       <div class="wrapper">
         <h2>Sur le projet</h2>
-        <video src="assets/video/chromarain.mp4" loop controls></video>
         <div class="information">
           <div class="contexte">
             <h3>Contexte</h3>
@@ -67,9 +66,7 @@
               <h3>Idéation et inspiration</h3>
             </div>
             <div class="info_etape">
-              <p>Je voulais faire une expérience où l’utilisateur intéragit avec des couleurs pour “peindre” l’écran, 
-                mais sans recréer le logiciel “MS Paint”. Je me suis donc inspiré du jeu mobile “Fruit Ninja” que je 
-                trouvais être un parfait mix d’intéraction utilisateur et peinturage d’écran original. 
+              <p>Je voulais expérimenter avec l'opérateur de particules de TouchDesigner depuis longtemps, sauf que je ne savais pas ce que je voulais faire avec. J'ai eu l'idée de faire une pluie interactive multicolore lorsque je jouais à un jeu et un cosmetique dans celui-ci m'a donné l'inspiration du projet.
               </p>
               <img src="assets/images/pc_inspiration_fn.jpg" alt="Inspiration Fruit Ninja">
             </div>
@@ -81,7 +78,7 @@
               <h3>Recherches sur l'opérateur de particules</h3>
             </div>
             <div class="info_etape">
-              <p>Il fallait créer deux design visuels pour le projet, un mode inactif et un mode actif. J’ai décidé d’aller avec des masses de couleurs qui bougent par elles mêmes pour le mode inactif. J’ai assombrit l’arrière-plan et je montre la silhouette de l’utilisateur qui s’incruste pour le mode actif. 
+              <p>Après avoir eu mon idée, j'ai commencé à faire des recherches sur comment l'opérateur de particules fonctionne et quels interactions et paramêtres je pouvais jouer avec pour explorer les particules le plus possible.
               </p>
               <img src="assets/images/pc_inspiration_fn.jpg" alt="Inspiration Fruit Ninja">
             </div>
@@ -93,7 +90,7 @@
               <h3>Premiers essais avec l'opérateur</h3>
             </div>
             <div class="info_etape">
-              <p>J’utilise le même genre de système d’interaction de le jeu “Fruit Ninja”. L’utilisateur éclate les boules de couleurs qui apparaissent pour peindre l’écran.«
+              <p>J'ai fait des premiers essais pour essayer d'avoir une pluie du haut de l'écran jusqu'en bas. J'ai eu un peu de trouble à faire en sorte que les particules apparraissent à une place aléatoire sur la ligne que j'utilise comme point de départ.
               </p>
               <img src="assets/images/pc_inspiration_fn.jpg" alt="Inspiration Fruit Ninja">
             </div>
@@ -105,7 +102,7 @@
               <h3>Version finale de l'opérateur</h3>
             </div>
             <div class="info_etape">
-              <p>Après les premiers tests, je trouve des bugs sur TouchDesigner et le code Python. Je les corriges pour rendre l’expérience aggréable.
+              <p>Au final, j'ai réussi à avoir des particules qui apparraissent aléatoirement sur la ligne de manière satisfaisante. J'ai ensuite rajouter une interactivité avec la souris qui fait en sorte qui la direction dans laquelle les particules vont dépend de si la position horizontale de la souris et l'intensité de la pluie dépend de la position verticale de la souris.
               </p>
               <img src="assets/images/pc_inspiration_fn.jpg" alt="Inspiration Fruit Ninja">
             </div>
@@ -117,7 +114,7 @@
               <h3>Rajout d'effets additionnels au projet </h3>
             </div>
             <div class="info_etape">
-              <p>Quand l’intéraction et le visuel sont majoritairement finis et fonctionnels, je rajoute les autres boules de couleurs et la sélection aléatoire des couleurs lorsqu’elles éclatent pour rendre l’expérience plus dynamique, colorée et complète. 
+              <p>Maintenant que j'ai fini avec le système de particules et ses interactions, il ne me reste plus qu'a rajouter des effets visuels. J'ai fait en sorte que la couleur des particules est aléatoire et qu'il y a un suivi flouté sur les particules pour leur donner du mouvement. J'ai finalement fait une réflexion de la pluie sur un sol imaginaire pour rendre le projet un peu plus réaliste.
               </p>
               <img src="assets/images/pc_inspiration_fn.jpg" alt="Inspiration Fruit Ninja">
             </div>
@@ -132,15 +129,15 @@
         <div class="wrapper">
           <div class="info_defi">
             <h3>Les défis</h3>
-            <p>Les défis principaux du projets étaient de faire fonctionner correctement le système d’intéraction, calibrer les proportions entre TouchDesigner et Kinect ainsi que le code Python.</p>
+            <p>Le plus gros défi était de réaliser le projet en utilisant seulement l'opérateur de particules. Il y avait aussi la création de la réflexion sur le sol.</p>
           </div>
           <div class="info_defi">
             <h3>Les solutions</h3>
-            <p>J’ai réussi à faire fonctionner le les interactions en utilisant une détection de collision entre les mains Kinect et les boules de couleurs sur TouchDesigner. La calibration était simplement une question d’arranger la position de la main Kinect en la multipliant par un facteur <1 et le code Python était plus facile en utilisant la documentation du language.</p>
+            <p>Le système de particules était beaucoup plus facile à utiliser lorsque j'ai fait des recherches sur comment il marche et la réflexion était essentiellement juste un mirroir vertical avec un bruit dynamique par dessus.</p>
           </div>
           <div class="info_defi">
             <h3>Les apprentissages</h3>
-            <p>J’ai appris à utiliser un Kinect et les données qu’elle donne pour faire diverses interactions sur TouchDesigner. J’ai aussi appris que les résolutions de Kinect et de TouchDesigner ne sont pas les mêmes et je dois y faire attention. J’ai aussi plus de facilité à consulter la documentation de Python lorsque j’en ai besoin. </p>
+            <p>J'ai appris que les particules sont extrêmement versatiles et on peut faire beaucoup de chose différentes avec. J'ai aussi appris que l'utilisation d'un mirroir pour certain effets visuels peut être très utile.</p>
           </div>
         </div>
       </section>
