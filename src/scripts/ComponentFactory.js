@@ -6,6 +6,7 @@ import Scrolly from './components/Scrolly.js';
 import Carousel from './components/Carousel.js';
 import Topography from './components/Topography.js';
 import RippleDistortion from './components/RippleDistortion.js';
+import CardTilt from './components/CardTilt.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -19,6 +20,7 @@ export default class ComponentFactory {
       Carousel,
       Topography,
       RippleDistortion,
+      CardTilt,
     };
     this.init();
   }

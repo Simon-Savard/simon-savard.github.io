@@ -1,5 +1,7 @@
 import ComponentFactory from "./ComponentFactory.js";
 import SplashCursor from "./components/SplashCursor.js";
+import ClickSpark from "./components/ClickSpark.js";
+import TextReveal from "./components/TextReveal.js";
 import Icons from "./utils/Icons.js";
 
 class Main {
@@ -11,7 +13,16 @@ class Main {
     document.documentElement.classList.add("has-js");
 
     new ComponentFactory();
+    new TextReveal();
     new SplashCursor();
+    new ClickSpark({
+      sparkColor: "#fff",
+      shape: "line",
+      sparkCount: 8,
+      sparkSize: 14,
+      sparkRadius: 30,
+      duration: 500,
+    });
 
     Icons.load();
 
