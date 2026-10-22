@@ -36,10 +36,18 @@
                             </svg>
                         </a></li>
                     </ul>
-                    <a class="btn" href="">Utilisation d'IA</a>
+                    <button class="btn" type="button" data-modale-open aria-haspopup="dialog">Utilisation d'IA</button>
                 </div>
             </div>
         </footer>
+
+        <div class="modale-ia" data-component="Modale" aria-hidden="true">
+            <div class="modale-ia_contenu" role="dialog" aria-modal="true" aria-labelledby="modale-ia-titre">
+                <button class="modale-ia_fermer" type="button" data-modale-close aria-label="Fermer la fenêtre">&times;</button>
+                <h2 id="modale-ia-titre">Déclaration d'utilisation de l'IA</h2>
+                <p>L'IA à été majoritairement utilisée pour la conversion des ReactBits en JavaScript/CSS, l'optimisation des vidéos dans le portfolio et la correction des textes.</p>
+            </div>
+        </div>
     
     </body>
 </html>

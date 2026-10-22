@@ -6,6 +6,7 @@ import Scrolly from './components/Scrolly.js';
 import Carousel from './components/Carousel.js';
 import Topography from './components/Topography.js';
 import RippleDistortion from './components/RippleDistortion.js';
+import Modale from './components/Modale.js';
 
 
 export default class ComponentFactory {
@@ -20,6 +21,7 @@ export default class ComponentFactory {
       Carousel,
       Topography,
       RippleDistortion,
+      Modale,
 
     };
     this.init();
