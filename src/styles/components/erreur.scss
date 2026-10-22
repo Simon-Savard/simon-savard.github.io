@@ -1,7 +1,17 @@
-.erreur .wrapper{
+.erreur{
+    position: relative;
+    isolation: isolate; // garde le fond Topography (z-index: -1) au-dessus du background de la section
+    overflow: hidden;
+    min-height: 70vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 30px;
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        text-align: center;
+    }
 }
