@@ -30,3 +30,28 @@ header{
         }
     }
 }
+
+.menu_reseaux ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    li{
+        list-style-type: none;
+        font-size: 16px;
+        background-color: var(--color-accent);
+        padding: 10px;
+        border-radius: 50vh;
+        border: 3px solid var(--color-accent);
+        transition: 0.5s $ease-out-expo;
+
+
+        &:hover{
+            background-color: transparent;
+            transition: 0.5s $ease-out-expo;
+
+        }
+    }
+
+}
