@@ -1,12 +1,10 @@
 .hero_apropos{
     position: relative;
-    height: 800px;
 
     // MOBILE : le texte et la photo s'empilent (texte au-dessus, photo en dessous)
     @media (width <= #{$breakpoint-mobile}){
         display: flex;
         flex-direction: column;
-        height: 500px;
     }
 
     img{
@@ -36,7 +34,7 @@
         // MOBILE : espace autour du texte (le hero n'a plus de hauteur fixe)
         @media (width <= #{$breakpoint-mobile}){
             padding: var(--spacing-md) 0 var(--spacing-lg);
-            height: inherit;
+
         }
 
         .hero_content{
@@ -152,5 +150,18 @@
                 gap: 10px;
             }
         }
+    }
+}
+
+.hero_projets{
+    height:800px;
+
+    @media (width <= #{$breakpoint-mobile}){
+        height: 500px;
+
+    }
+
+    .wrapper{
+        height: inherit;
     }
 }
