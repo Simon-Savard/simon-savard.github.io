@@ -4,6 +4,12 @@
     color: var(--color-white);
     border: 3px solid var(--color-accent);
     border-radius: 50vh;
+
+    // MOBILE : boutons un peu plus petits
+    @media (width <= #{$breakpoint-mobile}){
+        padding: 16px 32px;
+    }
+
     &:hover{
         background-color: transparent;
 

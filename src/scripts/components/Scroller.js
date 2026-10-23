@@ -79,16 +79,25 @@ export default class Scroller {
     const buffer = 200;
     console.log(nbPanels);
 
-    gsap.to(panels, {
-      xPercent: -100 * nbPanels,
-      ease: 'none',
-      scrollTrigger: {
-        pin: true,
-        trigger: sectionHoriz,
-        scrub: 1,
-        snap: 1 / nbPanels,
-        end: () => '+=' + (sectionHoriz.offsetWidth + buffer),
-      },
+    // Le défilement horizontal n'existe qu'au-dessus du breakpoint mobile.
+    // La valeur vient du CSS (--breakpoint-mobile, définie par $breakpoint-mobile dans dimensions.scss).
+    // En mode mobile, gsap.matchMedia annule l'animation, le pin et le snap : les étapes s'empilent (CSS).
+    const mobileMax = getComputedStyle(document.documentElement)
+      .getPropertyValue('--breakpoint-mobile')
+      .trim() || '400px';
+
+    gsap.matchMedia().add(`(width > ${mobileMax})`, () => {
+      gsap.to(panels, {
+        xPercent: -100 * nbPanels,
+        ease: 'none',
+        scrollTrigger: {
+          pin: true,
+          trigger: sectionHoriz,
+          scrub: 1,
+          snap: 1 / nbPanels,
+          end: () => '+=' + (sectionHoriz.offsetWidth + buffer),
+        },
+      });
     });
   }
 

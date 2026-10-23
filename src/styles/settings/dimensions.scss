@@ -2,6 +2,11 @@
    DIMENSIONS / SETTINGS
    ========================================================================== */
 
+// Le site passe en mode mobile à cette largeur (et moins).
+// Pour changer la largeur du mode mobile, modifier SEULEMENT cette valeur.
+// Utilisation dans le SCSS : @media (width <= #{$breakpoint-mobile}) { ... }
+$breakpoint-mobile: 400px;
+
 // Valeurs utilisées pour les médias query
 $breakpoint-xs: 480px;
 $breakpoint-sm: 768px;
@@ -16,4 +21,7 @@ $breakpoint-xl: 1920px;
     --spacing-lg: 50px;
     --spacing-xl: 100px;
     --spacing-xxl: 220px;
+
+    // Même valeur que $breakpoint-mobile, lisible par le JS (voir Scroller.js)
+    --breakpoint-mobile: #{$breakpoint-mobile};
 }

@@ -3,6 +3,11 @@
    ========================================================================== */
 section:not(.hero){
     padding: 100px 0;
+
+    // MOBILE : moins d'espace au-dessus et en dessous des sections
+    @media (width <= #{$breakpoint-mobile}){
+        padding: var(--spacing-lg) 0;
+    }
 }
 
 .hero{
@@ -11,6 +16,11 @@ section:not(.hero){
 
     .wrapper{
         height: 800px;
+
+        // MOBILE : le hero n'a plus de hauteur fixe, il s'ajuste à son contenu
+        @media (width <= #{$breakpoint-mobile}){
+            height: auto;
+        }
     }
 }
 
@@ -25,6 +35,12 @@ section:not(.hero){
 .section_gsap {
   display: flex;
   overflow: hidden;
+
+  // MOBILE : plus de défilement horizontal, les étapes s'empilent normalement
+  @media (width <= #{$breakpoint-mobile}){
+    display: block;
+    overflow: visible;
+  }
   
   .section_content {
     width: 100%;
@@ -35,8 +51,11 @@ section:not(.hero){
     justify-content: center;
     gap: 30px;
     flex-shrink: 0;
+
+    // MOBILE : la hauteur s'ajuste au contenu
+    @media (width <= #{$breakpoint-mobile}){
+      height: auto;
+      gap: 20px;
+    }
   }
 }
-
-
-

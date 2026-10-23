@@ -3,6 +3,7 @@ import SplashCursor from "./components/SplashCursor.js";
 import ClickSpark from "./components/ClickSpark.js";
 import TextReveal from "./components/TextReveal.js";
 import Icons from "./utils/Icons.js";
+import { MOBILE_QUERY } from "./utils/Breakpoints.js";
 
 class Main {
   constructor() {
@@ -14,7 +15,7 @@ class Main {
 
     new ComponentFactory();
     new TextReveal();
-    new SplashCursor();
+    this.initSplashCursor();
     new ClickSpark({
       sparkColor: "#fff",
       shape: "line",
@@ -27,6 +28,25 @@ class Main {
     Icons.load();
 
     this.initCardVideos();
+  }
+
+  // Le SplashCursor suit le curseur : il n'a pas de sens sur mobile.
+  // Il est retiré en mode mobile et revient si on repasse en mode bureau (redimensionnement).
+  initSplashCursor() {
+    const mobileQuery = window.matchMedia(MOBILE_QUERY);
+    this.splashCursor = null;
+
+    const update = () => {
+      if (mobileQuery.matches) {
+        this.splashCursor?.destroy();
+        this.splashCursor = null;
+      } else if (!this.splashCursor) {
+        this.splashCursor = new SplashCursor();
+      }
+    };
+
+    update();
+    mobileQuery.addEventListener("change", update);
   }
 
   // Les vidéos des tuiles ne se chargent et ne jouent qu'au survol (ou au focus clavier).

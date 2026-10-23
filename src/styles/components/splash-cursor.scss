@@ -1,0 +1,9 @@
+// SplashCursor : caché en mode mobile.
+// Le canvas #fluid et sa couche (le <div> qui le contient) sont créés par scripts/components/SplashCursor.js.
+// Le canvas a un display en style inline : il faut !important pour le cacher.
+@media (width <= #{$breakpoint-mobile}){
+    div:has(> #fluid),
+    #fluid{
+        display: none !important;
+    }
+}

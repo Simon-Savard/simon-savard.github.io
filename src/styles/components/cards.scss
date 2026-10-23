@@ -18,6 +18,13 @@
     aspect-ratio: 16/9;
     border-radius: 24px;
     overflow: hidden;
+
+    // MOBILE : carte moins large que haute pour que le titre et le bouton rentrent
+    @media (width <= #{$breakpoint-mobile}){
+        aspect-ratio: 4/3;
+        border-radius: 16px;
+    }
+
     .card_media{
         @include card-media();
         &::after{
@@ -48,6 +55,14 @@
         padding: 50px;
         transform: translateY(125px);
         transition: all 0.5s $ease-out-expo;
+
+        // MOBILE : pas de survol sur mobile, le contenu est toujours visible
+        @media (width <= #{$breakpoint-mobile}){
+            gap: 20px;
+            padding: 20px;
+            transform: none;
+        }
+
         .info_projet{
             display: flex;
             flex-direction: column;
@@ -55,12 +70,28 @@
             gap: 10px;
             max-width: 80%;
 
+            @media (width <= #{$breakpoint-mobile}){
+                max-width: 100%;
+            }
+
             ul{
                 list-style-type: none;
                 padding: 0;
                 margin: 0;
                 display: flex;
                 gap: 16px;
+
+                // MOBILE : les tags sont cachés
+                @media (width <= #{$breakpoint-mobile}){
+                    display: none;
+                }
+            }
+        }
+
+        .btn{
+            // MOBILE : bouton « Voir plus » plus petit
+            @media (width <= #{$breakpoint-mobile}){
+                padding: 10px 24px;
             }
         }
     }
@@ -78,6 +109,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+
+    // MOBILE : une seule colonne
+    @media (width <= #{$breakpoint-mobile}){
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 }
 
 .card_projet{
@@ -86,6 +123,13 @@
     aspect-ratio: 16/9;
     border-radius: 24px;
     overflow: hidden;
+
+    // MOBILE : carte moins large que haute pour que le titre et le bouton rentrent
+    @media (width <= #{$breakpoint-mobile}){
+        aspect-ratio: 4/3;
+        border-radius: 16px;
+    }
+
     .card_media{
         @include card-media();
         &::after{
@@ -116,6 +160,12 @@
         padding: 20px;
         transform: translateY(75px);
         transition: all 0.5s $ease-out-expo;
+
+        // MOBILE : pas de survol sur mobile, le contenu est toujours visible
+        @media (width <= #{$breakpoint-mobile}){
+            transform: none;
+        }
+
         .info_projet{
             display: flex;
             flex-direction: column;
@@ -128,6 +178,18 @@
                 margin: 0;
                 display: flex;
                 gap: 16px;
+
+                // MOBILE : les tags sont cachés
+                @media (width <= #{$breakpoint-mobile}){
+                    display: none;
+                }
+            }
+        }
+
+        .btn_secondary{
+            // MOBILE : bouton « Voir plus » plus petit
+            @media (width <= #{$breakpoint-mobile}){
+                padding: 6px 20px;
             }
         }
     }

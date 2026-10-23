@@ -1,5 +1,14 @@
 .hero_apropos{
     position: relative;
+    height: 800px;
+
+    // MOBILE : le texte et la photo s'empilent (texte au-dessus, photo en dessous)
+    @media (width <= #{$breakpoint-mobile}){
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+    }
+
     img{
         position: absolute;
         top: 0;
@@ -7,10 +16,29 @@
         z-index: 1;
         height: 100%;
         filter: brightness(1.2);
+
+        // MOBILE : la photo passe au-dessus du texte (elle est avant le texte dans le HTML).
+        // Sa hauteur est limitée pour que le nom, le profil et la catchphrase
+        // restent visibles dans le premier écran : augmenter max-height pour une photo plus grande.
+        @media (width <= #{$breakpoint-mobile}){
+            position: static;
+            align-self: center;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 40vh;
+        }
     }
     .wrapper{
         display: flex;
         align-items: center;
+
+        // MOBILE : espace autour du texte (le hero n'a plus de hauteur fixe)
+        @media (width <= #{$breakpoint-mobile}){
+            padding: var(--spacing-md) 0 var(--spacing-lg);
+            height: inherit;
+        }
+
         .hero_content{
             display: flex;
             flex-direction: column;
@@ -18,6 +46,12 @@
             justify-content: flex-start;
             gap: 30px;
             max-width: 60vw;
+
+            // MOBILE : le texte prend toute la largeur
+            @media (width <= #{$breakpoint-mobile}){
+                max-width: 100%;
+                gap: 20px;
+            }
     
             .info_simon{
                 display: flex;
@@ -28,11 +62,19 @@
 
                 h3{
                     max-width: 50vw;
+
+                    @media (width <= #{$breakpoint-mobile}){
+                        max-width: 100%;
+                    }
                 }
             }
 
             p{
                 max-width: 40vw;
+
+                @media (width <= #{$breakpoint-mobile}){
+                    max-width: 100%;
+                }
             }
 
         }
@@ -41,9 +83,19 @@
 
 .hero_projet{
     position: relative;
+    height: 800px;
+    @media (width <= #{$breakpoint-mobile}){
+        height: 500px;
+    }
     .wrapper{
         display: flex;
         align-items: center;
+
+        // MOBILE : espace autour du texte (le hero n'a plus de hauteur fixe)
+        @media (width <= #{$breakpoint-mobile}){
+            padding: var(--spacing-lg) 0;
+            height: inherit;
+        }
     }
     .hero_media{
         &::after{
@@ -65,6 +117,12 @@
         z-index: -1;
         width: 100%;
 
+        // MOBILE : la vidéo de fond remplit toute la hauteur du hero (recadrée au besoin)
+        @media (width <= #{$breakpoint-mobile}){
+            height: 100%;
+            object-fit: cover;
+        }
+
     }
 
     .hero_content{
@@ -74,6 +132,11 @@
         justify-content: center;
         gap: 30px;
         text-align: center;
+
+        @media (width <= #{$breakpoint-mobile}){
+            gap: 20px;
+        }
+
         ul{
             list-style-type: none;
             display: flex;
@@ -81,6 +144,13 @@
             gap: 24px;
             margin: 0;
             padding: 0;
+
+            // MOBILE : les tags passent à la ligne
+            @media (width <= #{$breakpoint-mobile}){
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
         }
     }
 }

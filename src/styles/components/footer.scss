@@ -2,6 +2,11 @@
     background-color: var(--color-bg-primary);
     padding: 100px 0;
 
+    // MOBILE
+    @media (width <= #{$breakpoint-mobile}){
+        padding: var(--spacing-lg) 0;
+    }
+
     .wrapper{
         display: flex;
         flex-direction: column;
@@ -13,6 +18,13 @@
             align-items: center;
             width: 100%;
 
+            // MOBILE : les réseaux et le bouton « Utilisation d'IA » s'empilent
+            @media (width <= #{$breakpoint-mobile}){
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+            }
+
             ul{
                 display: flex;
                 justify-content: space-between;
@@ -22,12 +34,20 @@
                 padding: 0;
                 margin: 0;
 
+                @media (width <= #{$breakpoint-mobile}){
+                    gap: 12px;
+                }
+
                 li{
                     background-color: var(--color-accent);
                     padding: 15px;
                     border-radius: 50px;
                     border: 3px solid var(--color-accent);
                     transition: 0.5s $ease-out-expo;
+
+                    @media (width <= #{$breakpoint-mobile}){
+                        padding: 10px;
+                    }
 
 
                     &:hover{
@@ -63,6 +83,11 @@
     visibility: hidden;
     transition: opacity 0.5s $ease-out-expo, visibility 0s linear 0.5s;
 
+    // MOBILE : moins d'espace autour de la fenêtre
+    @media (width <= #{$breakpoint-mobile}){
+        padding: var(--spacing-sm);
+    }
+
     &.is-open{
         opacity: 1;
         visibility: visible;
@@ -87,6 +112,11 @@
         border-radius: 24px;
         transform: translateY(30px) scale(0.95);
         transition: transform 0.5s $ease-out-expo;
+
+        @media (width <= #{$breakpoint-mobile}){
+            padding: 30px 20px;
+            border-radius: 16px;
+        }
 
         h2{
             padding-bottom: 0;
@@ -113,6 +143,11 @@
         border-radius: 50%;
         cursor: pointer;
         transition: 0.5s $ease-out-expo;
+
+        @media (width <= #{$breakpoint-mobile}){
+            top: 12px;
+            right: 12px;
+        }
 
         &:hover,
         &:focus-visible{
