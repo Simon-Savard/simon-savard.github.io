@@ -10,10 +10,6 @@ export default class Header {
     this.lastScrollPosition = 0;
     this.html = document.documentElement;
 
-    // Le header est sorti de #smooth-content (déplacé par ScrollSmoother avec un transform) :
-    // sinon position: sticky/fixed ne fonctionne pas et le header défile avec le contenu.
-    document.body.appendChild(this.header);
-
     this.init();
     this.initNavMobile();
   }
