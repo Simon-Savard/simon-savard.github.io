@@ -1,9 +1,7 @@
 header{
     /*background-color: var(--color-bg-primary);
     color: var(--color-white);*/
-    
-    // MOBILE : hauteur automatique (logo + réseaux sur la 1re rangée, menu sur la 2e)
-    
+
     height: 100px;
     align-items: center;
     display: flex;
@@ -13,7 +11,7 @@ header{
     top: 0;
     z-index: 10;
     transition: transform 0.4s $ease-out-expo;
-    
+
     &::before {
         background-color: var(--color-bg-primary);
         content: '';
@@ -24,11 +22,7 @@ header{
         height: 100%;
         z-index: 2;
     }
-    @media (width <= #{$breakpoint-mobile}){
-        height: auto;
-        padding: var(--spacing-sm) 0;
-    }
-    
+
     @media screen and (min-width: $breakpoint-lg) {
         padding: 0 var(--spacing-lg);
     }
@@ -43,67 +37,49 @@ header{
         justify-content: space-between;
         align-items: center;
 
-        // MOBILE : les éléments passent à la ligne
-        @media (width <= #{$breakpoint-mobile}){
-            height: auto;
-            flex-wrap: wrap;
-            gap: 10px 0;
+        // DESKTOP : sert de repère à .nav-primary, qui couvre toute la largeur du header
+        @media screen and (min-width: $breakpoint-md){
+            position: relative;
         }
-         
+
         .logo{
             font-size: typo(32px);
             font-weight: 900;
             text-transform: uppercase;
             z-index: 10;
-            // MOBILE : le logo reste en premier
-            @media (width <= #{$breakpoint-mobile}){
-                order: 1;
-            }
         }
     }
 }
 
-.menu ul{
+// ==========================================================================
+// MENUS
+// .nav-primary est le conteneur des deux menus :
+//   .menu          → les liens de navigation
+//   .menu_reseaux  → les icônes des réseaux sociaux
+// Sous $breakpoint-md, .nav-primary devient le panneau plein écran du menu mobile.
+// ==========================================================================
+
+.menu ul,
+.menu_reseaux ul{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul{
     gap: 30px;
 
-    // MOBILE : les liens passent à la ligne si besoin
-    @media (width <= #{$breakpoint-mobile}){
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 5px 20px;
-        padding: 0;
-        margin: 0;
-    }
-
-    li{
-        list-style-type: none;
-
-        a{
-            font-size: typo(18px);
-        }
+    li a{
+        font-size: typo(18px);
     }
 }
 
 .menu_reseaux ul{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 20px;
-    padding: 0;
-    margin: 0;
-
-    // MOBILE : icônes plus rapprochées
-    @media (width <= #{$breakpoint-mobile}){
-        gap: 10px;
-        padding: 0;
-        margin: 0;
-    }
 
     li{
-        list-style-type: none;
         font-size: 16px;
         background-color: var(--color-accent);
         padding: 10px;
@@ -111,18 +87,20 @@ header{
         border: 3px solid var(--color-accent);
         transition: 0.5s $ease-out-expo;
 
-        // MOBILE : icônes un peu plus petites
-        @media (width <= #{$breakpoint-mobile}){
-            padding: 8px;
-        }
-
         &:hover{
             background-color: transparent;
             transition: 0.5s $ease-out-expo;
-
         }
     }
 
+    // Très petits écrans : icônes plus rapprochées et un peu plus petites
+    @media (width <= #{$breakpoint-mobile}){
+        gap: 10px;
+
+        li{
+            padding: 8px;
+        }
+    }
 }
 
 .header__toggle {
@@ -187,81 +165,106 @@ header{
     }
 }
 
-.nav-primary {
-    background: var(--color-bg-primary);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow-y: auto;
-    transform: translateY(-100%);
-    transition: transform 0.6s $ease-out-expo;
+.nav-primary{
 
-    .nav-is-active & {
-        transform: translateY(0);
+    // DESKTOP : le conteneur couvre tout le header, en grille à 3 colonnes.
+    // Colonne 1 vide (le logo est à gauche), .menu au centre, .menu_reseaux à droite.
+    @media screen and (min-width: $breakpoint-md){
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        z-index: 2;
+
+        .menu{
+            grid-column: 2;
+        }
+
+        .menu_reseaux{
+            grid-column: 3;
+            justify-self: end;
+        }
     }
 
-    ul {
+    // MOBILE : panneau plein écran, .menu en haut et .menu_reseaux en dessous (à l'horizontale)
+    @media (width < #{$breakpoint-md}){
+        background: var(--color-bg-primary);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 100px 0 var(--spacing-md); // 100px = hauteur du header, qui recouvre le haut du panneau
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: center;
         gap: 40px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        transform: translateY(-70%);
-        transition: transform 1.2s $ease-out-expo;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateY(-100%);
+        transition: transform 0.6s $ease-out-expo;
 
-        .nav-is-active & {
+        .nav-is-active &{
             transform: translateY(0);
         }
 
-        li {
-            transform: translateX(70%);
-            transition: transform 1.2s $ease-out-expo;
+        .menu{
+            width: 100%;
 
-            .nav-is-active & {
-                transform: translateX(0);
+            ul{
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                width: 100%;
+                transform: translateY(-70%);
+                transition: transform 1.2s $ease-out-expo;
 
-                &:nth-child(1) {
-                    transition-delay: 0.1s;
+                .nav-is-active &{
+                    transform: translateY(0);
                 }
-                &:nth-child(2) {
-                    transition-delay: 0.2s;
+
+                li{
+                    transform: translateX(70%);
+                    transition: transform 1.2s $ease-out-expo;
+
+                    .nav-is-active &{
+                        transform: translateX(0);
+
+                        &:nth-child(1){
+                            transition-delay: 0.1s;
+                        }
+                        &:nth-child(2){
+                            transition-delay: 0.2s;
+                        }
+                        &:nth-child(3){
+                            transition-delay: 0.3s;
+                        }
+                        &:nth-child(4){
+                            transition-delay: 0.4s;
+                        }
+                    }
                 }
-                &:nth-child(3) {
-                    transition-delay: 0.3s;
-                }
-                &:nth-child(4) {
-                    transition-delay: 0.4s;
+
+                a{
+                    display: block;
+                    text-align: center;
                 }
             }
         }
 
-        a {
-            display: block;
-            text-align: center;
-        }
-    }
+        .menu_reseaux{
+            transform: translateX(70%);
+            transition: transform 1.2s $ease-out-expo;
 
-    @media screen and (min-width: $breakpoint-md) {
-        display: block;
-        background: unset;
-        position: relative;
-        height: auto;
-        width: auto;
-        overflow-y: visible;
-        padding-top: 0;
-        transform: translateX(0);
-        z-index: 2;
-
-        ul {
-            flex-direction: row;
-            transform: translateY(0);
+            .nav-is-active &{
+                transform: translateX(0);
+                transition-delay: 0.5s;
+            }
         }
     }
 }
