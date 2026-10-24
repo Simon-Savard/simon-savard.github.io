@@ -7,6 +7,7 @@ import Carousel from './components/Carousel.js';
 import Topography from './components/Topography.js';
 import RippleDistortion from './components/RippleDistortion.js';
 import Modale from './components/Modale.js';
+import OrbitImages from './components/OrbitImages.js';
 
 
 export default class ComponentFactory {
@@ -22,6 +23,7 @@ export default class ComponentFactory {
       Topography,
       RippleDistortion,
       Modale,
+      OrbitImages,
 
     };
     this.init();
