@@ -1,6 +1,8 @@
 header{
+    // Hauteur du header : le logo, le bouton et le panneau du menu mobile s'en servent
+    --header-height: 100px;
 
-    height: 100px;
+    height: var(--header-height);
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -10,7 +12,7 @@ header{
     z-index: 10;
     transition: transform 0.4s $ease-out-expo;
     @media (width <= #{$breakpoint-mobile}){
-        height: 70px;
+        --header-height: 70px;
     }
 
     &::before {
@@ -33,7 +35,8 @@ header{
     }
 
     .wrapper{
-        height: 100px;
+        // Même hauteur que le header : le logo et le bouton sont ainsi vraiment centrés verticalement
+        height: var(--header-height);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -199,7 +202,8 @@ header{
         left: 0;
         width: 100%;
         height: 100vh;
-        padding: 100px 0 var(--spacing-md); // 100px = hauteur du header, qui recouvre le haut du panneau
+        height: 100dvh; // dvh = hauteur visible réelle sur mobile (sans la barre du navigateur), pour que le menu soit bien centré
+        padding: var(--header-height) 0 var(--spacing-md); // le header recouvre le haut du panneau
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -21,10 +21,20 @@
         @media (width <= #{$breakpoint-mobile}){
             position: static;
             align-self: center;
-            width: auto;
+            // La photo est posée au bas d'un fond de la largeur de l'écran (halo magenta + sol violet),
+            // pour qu'elle ne flotte plus dans le vide. Le fond est sur l'<img> : aucun changement de HTML.
+            width: calc(100% - var(--spacing-md));
             max-width: 100%;
-            height: auto;
-            max-height: 40vh;
+            margin-top: var(--spacing-sm); // espace entre le header et le fond de la photo
+            height: 40vh;
+            max-height: none;
+            object-fit: contain;
+            object-position: center bottom;
+            border-radius: 16px;
+            background:
+                radial-gradient(ellipse 70% 60% at 50% 55%, rgba(228, 0, 198, 0.55), transparent 70%),
+                linear-gradient(to top, var(--color-primary), transparent 45%),
+                var(--color-bg-secondary);
         }
     }
     .wrapper{
