@@ -1,12 +1,40 @@
 header{
-    background-color: var(--color-bg-primary);
-    color: var(--color-white);
-    height: 100px;
-
+    /*background-color: var(--color-bg-primary);
+    color: var(--color-white);*/
+    
     // MOBILE : hauteur automatique (logo + réseaux sur la 1re rangée, menu sur la 2e)
+    
+    height: 100px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--spacing-sm);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: transform 0.4s $ease-out-expo;
+    
+    &::before {
+        background-color: var(--color-bg-primary);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
     @media (width <= #{$breakpoint-mobile}){
         height: auto;
         padding: var(--spacing-sm) 0;
+    }
+    
+    @media screen and (min-width: $breakpoint-lg) {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
+        transform: translateY(-100%) translateY(4px);
     }
 
     .wrapper{
@@ -26,20 +54,12 @@ header{
             font-size: typo(32px);
             font-weight: 900;
             text-transform: uppercase;
-
+            z-index: 10;
             // MOBILE : le logo reste en premier
             @media (width <= #{$breakpoint-mobile}){
                 order: 1;
             }
         }
-    }
-}
-
-.menu{
-    // MOBILE : le menu passe sous le logo, sur toute la largeur
-    @media (width <= #{$breakpoint-mobile}){
-        order: 3;
-        width: 100%;
     }
 }
 
@@ -67,18 +87,13 @@ header{
     }
 }
 
-.menu_reseaux{
-    // MOBILE : les réseaux restent sur la 1re rangée, à côté du logo
-    @media (width <= #{$breakpoint-mobile}){
-        order: 2;
-    }
-}
-
 .menu_reseaux ul{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    padding: 0;
+    margin: 0;
 
     // MOBILE : icônes plus rapprochées
     @media (width <= #{$breakpoint-mobile}){
@@ -108,4 +123,153 @@ header{
         }
     }
 
+}
+
+.header__toggle {
+    --bar-height: 4px;
+    --bar-width: 30px;
+    --bar-spacer: 4px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: var(--bar-width);
+    height: var(--bar-width);
+    z-index: 10;
+
+    span {
+        background: var(--color-white);
+        border-radius: 3px;
+        height: var(--bar-height);
+        width: 100%;
+        position: absolute;
+        top: calc(50% - var(--bar-height) / 2);
+        left: calc(50% - var(--bar-width) / 2);
+        transition: 0.3s all ease-out;
+
+        &:nth-child(1) {
+            top: calc(
+                50% - var(--bar-height) / 2 - var(--bar-height) -
+                    var(--bar-spacer)
+            );
+        }
+
+        &:nth-child(3) {
+            top: calc(
+                50% - var(--bar-height) / 2 + var(--bar-height) +
+                    var(--bar-spacer)
+            );
+        }
+    }
+
+    .nav-is-active & {
+        span {
+            top: calc(50% - var(--bar-height) / 2);
+            &:nth-child(1) {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: scaleX(0);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    @media (width >= $breakpoint-md) {
+        display: none;
+    }
+}
+
+.nav-primary {
+    background: var(--color-bg-primary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    transform: translateY(-100%);
+    transition: transform 0.6s $ease-out-expo;
+
+    .nav-is-active & {
+        transform: translateY(0);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        transform: translateY(-70%);
+        transition: transform 1.2s $ease-out-expo;
+
+        .nav-is-active & {
+            transform: translateY(0);
+        }
+
+        li {
+            transform: translateX(70%);
+            transition: transform 1.2s $ease-out-expo;
+
+            .nav-is-active & {
+                transform: translateX(0);
+
+                &:nth-child(1) {
+                    transition-delay: 0.1s;
+                }
+                &:nth-child(2) {
+                    transition-delay: 0.2s;
+                }
+                &:nth-child(3) {
+                    transition-delay: 0.3s;
+                }
+                &:nth-child(4) {
+                    transition-delay: 0.4s;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-md) {
+        display: block;
+        background: unset;
+        position: relative;
+        height: auto;
+        width: auto;
+        overflow-y: visible;
+        padding-top: 0;
+        transform: translateX(0);
+        z-index: 2;
+
+        ul {
+            flex-direction: row;
+            transform: translateY(0);
+        }
+    }
+}
+
+.nav-is-active body {
+    overflow: hidden;
+
+    @media (width >= $breakpoint-md) {
+        overflow: auto;
+    }
 }
