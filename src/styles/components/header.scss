@@ -1,6 +1,4 @@
 header{
-    /*background-color: var(--color-bg-primary);
-    color: var(--color-white);*/
 
     height: 100px;
     align-items: center;
@@ -11,6 +9,9 @@ header{
     top: 0;
     z-index: 10;
     transition: transform 0.4s $ease-out-expo;
+    @media (width <= #{$breakpoint-mobile}){
+        height: 70px;
+    }
 
     &::before {
         background-color: var(--color-bg-primary);

@@ -21,7 +21,7 @@
 
     // MOBILE : carte moins large que haute pour que le titre et le bouton rentrent
     @media (width <= #{$breakpoint-mobile}){
-        aspect-ratio: 4/3;
+        aspect-ratio: 1/1;
         border-radius: 16px;
     }
 
@@ -126,7 +126,7 @@
 
     // MOBILE : carte moins large que haute pour que le titre et le bouton rentrent
     @media (width <= #{$breakpoint-mobile}){
-        aspect-ratio: 4/3;
+        aspect-ratio: 1/1;
         border-radius: 16px;
     }
 
