@@ -15,13 +15,45 @@ export default class Scroller {
   }
 
   init() {
-    const scroller = ScrollSmoother.create({
+    this.smoother = ScrollSmoother.create({
       smooth: 2,
       effects: true,
       smoothTouch: 0.1,
       onUpdate: this.onUpdateScroll.bind(this),
       onStop: this.onStopScroll.bind(this),
       ease: 'expo.out',
+    });
+
+    this.initAnchors();
+  }
+
+  // Liens d'ancre (ex. « Me contacter » → #footer).
+  // Avec ScrollSmoother, le navigateur ne doit pas gérer l'ancre lui-même : il fait défiler le
+  // #smooth-wrapper (overflow: hidden) au lieu de la page, ce qui décale le contenu pour de bon
+  // (impossible de remonter, on peut défiler au-delà du footer). On passe donc par smoother.scrollTo.
+  initAnchors() {
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      const hash = link.getAttribute('href');
+      if (hash.length < 2) return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      event.preventDefault();
+
+      // Ferme le menu mobile (il bloque le défilement du body tant qu'il est ouvert)
+      document.documentElement.classList.remove('nav-is-active');
+
+      this.smoother.scrollTo(target, true, 'top top');
+    });
+
+    // Filet de sécurité : le wrapper ne doit jamais défiler lui-même (ex. focus clavier sur un élément hors écran)
+    this.element.addEventListener('scroll', () => {
+      this.element.scrollTop = 0;
+      this.element.scrollLeft = 0;
     });
   }
 

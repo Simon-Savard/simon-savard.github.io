@@ -1,19 +1,29 @@
-header{
-    // Hauteur du header : le logo, le bouton et le panneau du menu mobile s'en servent
+// Hauteur du header : le logo, le bouton, le panneau du menu mobile et l'espace réservé en haut de page s'en servent
+:root{
     --header-height: 100px;
 
+    @media (width <= #{$breakpoint-mobile}){
+        --header-height: 70px;
+    }
+}
+
+// Le header est en position: fixed (hors de #smooth-content) : on réserve sa place en haut du contenu
+#smooth-content{
+    padding-top: var(--header-height);
+}
+
+header{
     height: var(--header-height);
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding: 0 var(--spacing-sm);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 10;
     transition: transform 0.4s $ease-out-expo;
-    @media (width <= #{$breakpoint-mobile}){
-        --header-height: 70px;
-    }
 
     &::before {
         background-color: var(--color-bg-primary);
@@ -30,7 +40,7 @@ header{
         padding: 0 var(--spacing-lg);
     }
 
-    .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
+    .header-is-hidden:not(.nav-is-active) & {
         transform: translateY(-100%) translateY(4px);
     }
 

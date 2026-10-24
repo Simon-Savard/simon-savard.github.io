@@ -9,13 +9,18 @@ export default class Header {
     this.scrollPosition = 0;
     this.lastScrollPosition = 0;
     this.html = document.documentElement;
+
+    // Le header est sorti de #smooth-content (déplacé par ScrollSmoother avec un transform) :
+    // sinon position: sticky/fixed ne fonctionne pas et le header défile avec le contenu.
+    document.body.appendChild(this.header);
+
     this.init();
     this.initNavMobile();
   }
 
   init() {
     this.setOptions();
-    window.addEventListener("scroll", this.onScroll.bind(this));
+    window.addEventListener("scroll", this.onScroll.bind(this), { passive: true });
   }
 
   initNavMobile() {
@@ -54,11 +59,15 @@ export default class Header {
     }
   }
 
+  // Caché : on a dépassé le seuil ET on descend.
+  // Visible : dès qu'on remonte, peu importe où on est sur la page, ou quand on est sous le seuil.
   setHeaderState() {
-    if (
-      this.scrollPosition >=
-      document.scrollingElement.scrollHeight * this.options.threshold
-    ) {
+    const limit =
+      document.scrollingElement.scrollHeight * this.options.threshold;
+
+    if (this.scrollPosition < limit) {
+      this.html.classList.remove("header-is-hidden");
+    } else if (this.scrollPosition > this.lastScrollPosition) {
       this.html.classList.add("header-is-hidden");
     } else if (this.scrollPosition < this.lastScrollPosition) {
       this.html.classList.remove("header-is-hidden");
