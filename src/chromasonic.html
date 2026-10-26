@@ -4,11 +4,11 @@
 
     <section class="hero hero_projet">
       <div class="hero_media">
-        <video src="assets/video/polychroma.mp4" autoplay loop></video>
+        <video src="assets/video/preview_CS.mp4" autoplay loop></video>
       </div>
       <div class="wrapper">
         <div class="hero_content">
-          <h1>Création d’une expérience intéractive à l’aide d’une Kinect</h1>
+          <h1>Création et expérimentation d'une expérience audio-réactive</h1>
           <ul>
             <li>
               <p class="tag">2026</p>
@@ -20,13 +20,10 @@
               <p class="tag">TouchDesigner</p>
             </li>
             <li>
-              <p class="tag">Kinect</p>
+              <p class="tag">Audio-réactif</p>
             </li>
             <li>
-              <p class="tag">Python</p>
-            </li>
-            <li>
-              <p class="tag">Scolaire</p>
+              <p class="tag">Personnel</p>
             </li>
           </ul>
         </div>
@@ -40,10 +37,7 @@
           <div class="contexte">
             <h3>Contexte</h3>
             <p>
-              Polychroma est un projet scolaire dans lequel il fallait concevoir
-              <strong>une expérience intéractive</strong> à l’aide d’une Kinect
-              V2. Ce projet allait ensuite être utilisé sur une murale pour les
-              étudiants passant.
+              Chromasonic est une expérimention sur l'audio-réactivité dans TouchDesigner. Je voulais découvrir cet aspect des médias interactifs tout en même temps que d'approfondir mes connaissances avec les particules dans TouchDesigner.
             </p>
           </div>
           <div class="credits">
@@ -51,7 +45,6 @@
             <ul>
               <li><p>Visuels et interactions: Simon Savard-Blondel</p></li>
               <li><p>Musique: freetouse.com</p></li>
-              <li><p>Sons:soundsnap.com</p></li>
             </ul>
           </div>
         </div>
@@ -73,15 +66,11 @@
             </div>
             <div class="info_etape">
               <p>
-                Je voulais faire une expérience où l’utilisateur intéragit avec
-                des couleurs pour “peindre” l’écran, mais sans recréer le
-                logiciel “MS Paint”. Je me suis donc inspiré du jeu mobile
-                “Fruit Ninja” que je trouvais être un parfait mix d’intéraction
-                utilisateur et peinturage d’écran original.
+                Je voulais rester dans le multi-colore pour ce projet puisque mes projets précédents l'étaient aussi. J'ai décidé d'utiliser un cercle pour l'initiation des particules pour simuler les cercles de spectrum audio que l'on peut retrouver dans les vidéos de musique.
               </p>
               <img
-                src="assets/images/pc_inspiration_fn.jpg"
-                alt="Inspiration Fruit Ninja"
+              src="assets/images/spectrum_rond.png"
+              alt="Inspiration Fruit Ninja"
               />
             </div>
           </div>
@@ -89,18 +78,14 @@
           <div class="section_content js-panel etape">
             <div class="titre_etape">
               <p>02/05 -</p>
-              <h3>Création du design visuel</h3>
+              <h3>Recherches sur l'audio-réactivité</h3>
             </div>
             <div class="info_etape">
               <p>
-                Il fallait créer deux design visuels pour le projet, un mode
-                inactif et un mode actif. J’ai décidé d’aller avec des masses de
-                couleurs qui bougent par elles mêmes pour le mode inactif. J’ai
-                assombrit l’arrière-plan et je montre la silhouette de
-                l’utilisateur qui s’incruste pour le mode actif.
+                J'ai fait des recherches sur l'audio-réactivité pour savoir comment ça fonctionne. J'ai vu que l'on pouvait utiliser un spectre audio et un analyse que l'on peut ensuite normaliser pour obtenir le rythme. Cependant, je suis tombé sur la composante «audioAnalysis» qui fait la même chose et plus encore.
               </p>
               <img
-                src="assets/images/pc_inspiration_fn.jpg"
+                src="assets/images/ac_audioanalysis.png"
                 alt="Inspiration Fruit Ninja"
               />
             </div>
@@ -109,16 +94,14 @@
           <div class="section_content js-panel etape">
             <div class="titre_etape">
               <p>03/05 -</p>
-              <h3>Création du système d'interactions</h3>
+              <h3>Création du système de particules</h3>
             </div>
             <div class="info_etape">
               <p>
-                J’utilise le même genre de système d’interaction de le jeu
-                “Fruit Ninja”. L’utilisateur éclate les boules de couleurs qui
-                apparaissent pour peindre l’écran.«
+                Comme j'ai mentionné précédemment, je suis allé avec un cercle pour l'initiation des particules. Je leur donne aussi une couleur aléatoire ainsi qu'un suivi et un flou lumineux pour rendre les particules plus intéressantes.
               </p>
               <img
-                src="assets/images/pc_inspiration_fn.jpg"
+                src="assets/images/AC_setup_particules.png"
                 alt="Inspiration Fruit Ninja"
               />
             </div>
@@ -127,16 +110,14 @@
           <div class="section_content js-panel etape">
             <div class="titre_etape">
               <p>04/05 -</p>
-              <h3>Tests et débogage de Python</h3>
+              <h3>Création des effets d'arrière-plan</h3>
             </div>
             <div class="info_etape">
               <p>
-                Après les premiers tests, je trouve des bugs sur TouchDesigner
-                et le code Python. Je les corriges pour rendre l’expérience
-                aggréable.
+                Pour l'arrière-plan, je suis aller avec un effet qui ressemble un peu à l'eau en utilisant des Noise TOP «fusionnés» ensemble. J'ai aussi rajouté un rectangle qui grandi et bouge vers l'extérieur dans le rythme de la musique.
               </p>
               <img
-                src="assets/images/pc_inspiration_fn.jpg"
+                src="assets/images/AC_setup_bg.png"
                 alt="Inspiration Fruit Ninja"
               />
             </div>
@@ -145,21 +126,19 @@
           <div class="section_content js-panel etape">
             <div class="titre_etape">
               <p>05/05 -</p>
-              <h3>Finalités du projet</h3>
+              <h3>Création du système audio</h3>
             </div>
             <div class="info_etape">
               <p>
-                Quand l’intéraction et le visuel sont majoritairement finis et
-                fonctionnels, je rajoute les autres boules de couleurs et la
-                sélection aléatoire des couleurs lorsqu’elles éclatent pour
-                rendre l’expérience plus dynamique, colorée et complète.
+                J'ai décidé d'aller avec la composante «audioAnalysis», puisqu'elle me donne plus de données et j'ai plus de contrôle sur ce que j'ai besoin pour mon projet. Je suis resté simple en gardant le kick, le snare et le rythm pour débuter. J'ai créé quelques valeurs modifiées venant de la musique que j'utilise pour rendre le projet audio-réactif.
               </p>
               <img
-                src="assets/images/pc_inspiration_fn.jpg"
+                src="assets/images/AC_setup_son.png"
                 alt="Inspiration Fruit Ninja"
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -168,9 +147,15 @@
       <div class="wrapper">
         <h2>Le résultat final</h2>
         <div class="video_finale">
-          <video src="assets/video/polychroma.mp4" controls loop></video>
+            <div class="video" data-component="Youtube" data-video-id="63_VwSGJkEs">
+                <div class="video_media js-video">
+                    <svg class="icon icon--xl">
+                        <use xlink:href="#icon-play"></use>
+                    </svg>
+                </div>
+            </div>
+          </div>
           <a href="projets.html" class="btn">Retourner aux projets</a>
-        </div>
       </div>
     </section>
 
@@ -179,30 +164,19 @@
         <div class="info_defi">
           <h3>Les défis</h3>
           <p>
-            Les défis principaux du projets étaient de faire fonctionner
-            correctement le système d’intéraction, calibrer les proportions
-            entre TouchDesigner et Kinect ainsi que le code Python.
+            Un grand défi de ce projet était d'apprendre à utiliser la composante «audioAnalysis» correctement. Un autre défi était que ce projet était le premier projet audio-réactif que j'avais réalisé.
           </p>
         </div>
         <div class="info_defi">
           <h3>Les solutions</h3>
           <p>
-            J’ai réussi à faire fonctionner le les interactions en utilisant une
-            détection de collision entre les mains Kinect et les boules de
-            couleurs sur TouchDesigner. La calibration était simplement une
-            question d’arranger la position de la main Kinect en la multipliant
-            par un facteur <1 et le code Python était plus facile en utilisant
-            la documentation du language.
+            Après avoir fait quelques recherches et avoir regardé quelques vidéos, la composante «audioAnalysis» était plus facile à comprendre et à utiliser.
           </p>
         </div>
         <div class="info_defi">
           <h3>Les apprentissages</h3>
           <p>
-            J’ai appris à utiliser un Kinect et les données qu’elle donne pour
-            faire diverses interactions sur TouchDesigner. J’ai aussi appris que
-            les résolutions de Kinect et de TouchDesigner ne sont pas les mêmes
-            et je dois y faire attention. J’ai aussi plus de facilité à
-            consulter la documentation de Python lorsque j’en ai besoin.
+            J’ai appris à utiliser les données que je peux ressortir d'une musique pour créer des visuels dynamiques. Je pourrais potentiellement faire en sorte que le projet réagit à la voix d'une personne pour combiner l'interactif avec l'audio-réactif.
           </p>
         </div>
       </div>
