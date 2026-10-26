@@ -1,169 +1,167 @@
-.info_projet{
-    .wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 50px;
-
-        // MOBILE : moins d'espace entre les blocs
-        @media (width <= #{$breakpoint-mobile}){
-            gap: var(--spacing-md);
-        }
-
-        video{
-            width: 100%;
-            border-radius: 24px;
-
-            @media (width <= #{$breakpoint-mobile}){
-                border-radius: 16px;
-            }
-        }
-
-        .information{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 48px;
-
-            // MOBILE : contexte et crédits s'empilent
-            @media (width <= #{$breakpoint-mobile}){
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-md);
-            }
-
-            .contexte{
-                h3{
-                    padding-bottom: 20px;
-                }
-                max-width: 50%;
-
-                @media (width <= #{$breakpoint-mobile}){
-                    max-width: 100%;
-                }
-            }
-            
-            .credits{
-                h3{
-                    padding-bottom: 20px;
-                }
-                ul{
-                    list-style-type: none;
-                    padding: 0;
-                    margin: 0;
-                }
-                
-            }
-        }
-
-    }
-}
-
-.titre_etape{
+.info_projet {
+  .wrapper {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--color-accent);
-
-    // MOBILE : le numéro de l'étape passe au-dessus du nom
-    @media (width <= #{$breakpoint-mobile}){
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-}
-
-.info_etape{
-    display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 48px;
+    gap: 50px;
 
-    // MOBILE : le texte passe au-dessus de l'image
-    @media (width <= #{$breakpoint-mobile}){
-        flex-direction: column;
-        gap: 20px;
+    // MOBILE : moins d'espace entre les blocs
+    @media (width <= #{$breakpoint-mobile}) {
+      gap: var(--spacing-md);
     }
 
-    p{
+    video {
+      width: 100%;
+      border-radius: 24px;
+
+      @media (width <= #{$breakpoint-mobile}) {
+        border-radius: 16px;
+      }
+    }
+
+    .information {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 48px;
+
+      // MOBILE : contexte et crédits s'empilent
+      @media (width <= #{$breakpoint-mobile}) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+      }
+
+      .contexte {
+        h3 {
+          padding-bottom: 20px;
+        }
         max-width: 50%;
 
-        @media (width <= #{$breakpoint-mobile}){
-            max-width: 100%;
+        @media (width <= #{$breakpoint-mobile}) {
+          max-width: 100%;
         }
-    }
+      }
 
-    img{
-        width: 588px;
-        max-height: 500px;
-        height: 100%;
-        //aspect-ratio: 16/9;
-        border-radius: 24px;
-
-        // MOBILE : l'image prend toute la largeur
-        @media (width <= #{$breakpoint-mobile}){
-            width: 100%;
-            height: auto;
-            max-height: none;
-            border-radius: 16px;
+      .credits {
+        h3 {
+          padding-bottom: 20px;
         }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+      }
     }
+  }
 }
 
-.flex_etapes{
-    display: flex;
-    justify-content: space-around;
+.titre_etape {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-accent);
+
+  // MOBILE : le numéro de l'étape passe au-dessus du nom
+  @media (width <= #{$breakpoint-mobile}) {
+    flex-direction: column;
     align-items: flex-start;
-
-    // MOBILE : les étapes de conception sont dans une seule colonne
-    @media (width <= #{$breakpoint-mobile}){
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: var(--spacing-lg);
-    }
+    gap: 5px;
+  }
 }
 
-.defis{
-    .wrapper{
-        background-color: var(--color-primary);
-        border-radius: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 50px;
-        padding: 50px;
+.info_etape {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 48px;
 
-        // MOBILE
-        @media (width <= #{$breakpoint-mobile}){
-            border-radius: 16px;
-            gap: var(--spacing-md);
-            padding: 24px;
-        }
+  // MOBILE : le texte passe au-dessus de l'image
+  @media (width <= #{$breakpoint-mobile}) {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-        .info_defi h3{
-            padding-bottom: 10px;
-        }
+  p {
+    max-width: 50%;
+
+    @media (width <= #{$breakpoint-mobile}) {
+      max-width: 100%;
     }
-}
+  }
 
-.video_finale video{
-    width: 100%;
-    padding-bottom: 30px;
+  img {
+    width: 588px;
+    max-height: 500px;
+    height: 100%;
+    //aspect-ratio: 16/9;
     border-radius: 24px;
 
-    @media (width <= #{$breakpoint-mobile}){
-        border-radius: 16px;
+    // MOBILE : l'image prend toute la largeur
+    @media (width <= #{$breakpoint-mobile}) {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      border-radius: 16px;
     }
+  }
+}
+
+.flex_etapes {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  // MOBILE : les étapes de conception sont dans une seule colonne
+  @media (width <= #{$breakpoint-mobile}) {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--spacing-lg);
+  }
+}
+
+.defis {
+  .wrapper {
+    background-color: var(--color-primary);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 50px;
+
+    // MOBILE
+    @media (width <= #{$breakpoint-mobile}) {
+      border-radius: 16px;
+      gap: var(--spacing-md);
+      padding: 24px;
+    }
+
+    .info_defi h3 {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.video_finale video {
+  width: 100%;
+  padding-bottom: 30px;
+  border-radius: 24px;
+
+  @media (width <= #{$breakpoint-mobile}) {
+    border-radius: 16px;
+  }
 }
 
 // Bouton « Retourner aux projets »
-.video_finale .btn{
-    // MOBILE : bouton plus petit
-    @media (width <= #{$breakpoint-mobile}){
-        padding: 10px 24px;
-    }
+.video_finale .btn {
+  // MOBILE : bouton plus petit
+  @media (width <= #{$breakpoint-mobile}) {
+    padding: 10px 24px;
+  }
 }
 
-.declaration h3{
-    padding-bottom: 20px;
+.declaration h3 {
+  padding-bottom: 20px;
 }
