@@ -8,6 +8,7 @@ import Topography from './components/Topography.js';
 import RippleDistortion from './components/RippleDistortion.js';
 import Modale from './components/Modale.js';
 import OrbitImages from './components/OrbitImages.js';
+import Ballpit from './components/Ballpit.js';
 
 
 export default class ComponentFactory {
@@ -24,6 +25,7 @@ export default class ComponentFactory {
       RippleDistortion,
       Modale,
       OrbitImages,
+      Ballpit,
 
     };
     this.init();

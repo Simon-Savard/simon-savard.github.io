@@ -1,5 +1,12 @@
 .footer{
     background-color: var(--color-bg-primary);
+    // Le footer prend toute la hauteur de l'écran (au minimum).
+    // Le Ballpit est son arrière-plan (position absolue sur tout le footer, derrière le contenu).
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100svh;
     padding: 100px 0;
 
     // MOBILE
@@ -8,6 +15,9 @@
     }
 
     .wrapper{
+        // Au-dessus du Ballpit
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -58,6 +68,26 @@
 
                 }
             }
+        }
+    }
+
+    // Ballpit (voir scripts/components/Ballpit.js) : arrière-plan du footer, sur toute sa surface.
+    // Le canvas est ajouté par la composante.
+    .footer_ballpit{
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        // Sur écran tactile, le défilement vertical de la page reste possible
+        touch-action: pan-y;
+
+        // Le canvas est en absolu : sa taille n'influence pas celle de la zone
+        canvas{
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
         }
     }
 }
