@@ -5,4 +5,3 @@ https://simon-savard.github.io/webjam.html
 https://simon-savard.github.io/chromarain.html
 https://simon-savard.github.io/boxotel.html
 https://simon-savard.github.io/chromasonic.html
-https://simon-savard.github.io/404.html
