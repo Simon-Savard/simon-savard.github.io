@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Ceci est le portfolio de Simon Savard-Blondel, développeur de médias interactifs et web." />
     <title>Portfolio | Simon Savard-Blondel | Développeur de médias interactifs et web</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQ89Z1WR7M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LQ89Z1WR7M');
+    </script>
 
     <link rel="stylesheet" href="styles/main.css" />
     <script src="scripts/main.js" defer></script>
@@ -27,22 +36,22 @@
           </div>
           <div class="menu_reseaux">
             <ul>
-              <li><a href="https://www.youtube.com/@simsav-TD" target="_blank">
+              <li><a href="https://www.youtube.com/@simsav-TD" target="_blank" aria-label="Bouton youtube">
                 <svg class="icon icon--lg">
                   <use xlink:href="#icon-youtube"></use>
                 </svg>
               </a></li>
-              <li><a href="https://github.com/Simon-Savard" target="_blank">
+              <li><a href="https://github.com/Simon-Savard" target="_blank" aria-label="Bouton Github">
                 <svg class="icon icon--lg">
                   <use xlink:href="#icon-github"></use>
                 </svg>
               </a></li>
-              <li><a href="https://www.instagram.com/simsav_interactive/" target="_blank">
+              <li><a href="https://www.instagram.com/simsav_interactive/" target="_blank" aria-label="Bouton instagram">
                 <svg class="icon icon--lg">
                   <use xlink:href="#icon-instagram"></use>
                 </svg>
               </a></li>
-              <li><a href="https://www.linkedin.com/in/simon-savard-blondel-000592442" target="_blank">
+              <li><a href="https://www.linkedin.com/in/simon-savard-blondel-000592442" target="_blank" aria-label="Bouton linkedin">
                 <svg class="icon icon--lg">
                   <use xlink:href="#icon-linkedin"></use>
                 </svg>
@@ -50,7 +59,7 @@
             </ul>
           </div>
         </nav>
-        <button class="header__toggle js-toggle">
+        <button class="header__toggle js-toggle" aria-label="Bouton menu mobile">
           <span></span>
           <span></span>
           <span></span>
