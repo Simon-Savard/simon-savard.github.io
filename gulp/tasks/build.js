@@ -5,6 +5,7 @@
 
 // Dependencies
 import { series, parallel } from 'gulp';
+import { statics } from './statics.js';
 
 // Tasks
 import { clean } from './clean.js';
@@ -15,5 +16,5 @@ import { assets } from './assets.js';
 
 export const build = series(
   clean,
-  parallel(styles, scripts, templates, assets)
+  parallel(styles, scripts, templates, assets, statics)
 );
